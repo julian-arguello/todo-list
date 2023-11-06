@@ -1,0 +1,64 @@
+/* Fonts */
+@import './normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@500;600;700&display=swap');
+
+/* Colors */
+:root {
+  --grey: #333745;
+  --grey-50: rgba(51, 55, 69, 0.5);
+  --white: #FFFFFF;
+  --light-gray: #F1F2F6;
+  --light-gray-50: rgba(241, 242, 246, 0.50);
+  --violet: #966AF2;
+  --green: #E4F862;
+  --red: #FF715B;
+  --cover: rgba(64, 67, 75, 0.7);
+  --b-radius: 0.625rem;
+
+  --desktop-breakpoint: 768px:
+}
+
+* {
+  /* outline: 1px solid #FF715B; */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--light-gray);
+}
+
+.app {
+  max-width: 1200px;
+  margin: auto;
+  font-family: 'Red Hat Text', sans-serif;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 0.6rem;
+}
+
+button,
+input {
+  border: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+
+  .app {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr auto auto repeat(9, 1fr);
+  }
+
+}
