@@ -1,20 +1,28 @@
-import { TodoCreateMobile } from './../TodoCreateMobile/TodoCreateMobile.jsx';
-import { TodoCreateDesktop } from './../TodoCreateDesktop/TodoCreateDesktop.jsx';
-import { getDesktopBreakpoint } from '../../../utilities/screenSizes';
+import { TodoCreateMobile } from "./../TodoCreateMobile/TodoCreateMobile.jsx";
+import { TodoCreateDesktop } from "./../TodoCreateDesktop/TodoCreateDesktop.jsx";
 
-import style from './todoCreate.module.css';
-
-function TodoCreate() {
-
-    return (
-
-        <>
-            <TodoCreateDesktop />
-            <TodoCreateMobile />
-        </>
-
-
-        )
+function TodoCreate({
+  newTaskValue,
+  setNewTaskValue,
+  addTask,
+  addTaskButtonState,
+}) {
+  return (
+    <>
+      <TodoCreateDesktop
+        newTaskValue={newTaskValue}
+        setNewTaskValue={setNewTaskValue}
+        addTask={addTask}
+        addTaskButtonState={addTaskButtonState}
+      />
+      <TodoCreateMobile
+        newTaskValue={newTaskValue}
+        setNewTaskValue={setNewTaskValue}
+        addTask={addTask}
+        addTaskButtonState={addTaskButtonState}
+      />
+    </>
+  );
 }
 
 export { TodoCreate };

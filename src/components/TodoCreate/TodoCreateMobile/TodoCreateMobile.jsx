@@ -1,17 +1,32 @@
-import { FaPlus } from 'react-icons/fa';
-import style from './TodoCreateMobile.module.css';
+import { FaPlus } from "react-icons/fa";
+import style from "./TodoCreateMobile.module.css";
+import { TodoModalCard } from "../../TodoModalCard/TodoModalCard";
+import { useState } from "react";
 
-function TodoCreateMobile() {
+function TodoCreateMobile({
+  newTaskValue,
+  setNewTaskValue,
+  addTask,
+  addTaskButtonState,
+}) {
+  const [showModal, SetShowModal] = useState(false);
 
-    const addTask = () => {
-        console.log('Add task');
-    }
+  return (
+    <>
+      <button className={style.button} onClick={() => SetShowModal(true)}>
+        <FaPlus />
+      </button>
 
-    return (
-        
-        <button className={style.button} onClick={addTask}><FaPlus /></button>
-
-    )
-
+      {showModal && (
+        <TodoModalCard
+          newTaskValue={newTaskValue}
+          setNewTaskValue={setNewTaskValue}
+          addTask={addTask}
+          addTaskButtonState={addTaskButtonState}
+          SetShowModal={SetShowModal}
+        />
+      )}
+    </>
+  );
 }
-export { TodoCreateMobile }
+export { TodoCreateMobile };

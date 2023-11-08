@@ -4,7 +4,7 @@ import style from "./todoList.module.css";
 function TodoList({ tasks, onComplete, onUndo, onDelete }) {
   return (
     <ul className={style.todoList}>
-      {tasks.map(({ title, id, completed }) => (
+      {tasks.reverse().map(({ title, id, completed }) => (
         <TodoItem
           key={id}
           id={id}

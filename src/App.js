@@ -17,20 +17,17 @@ function App() {
   }, []);
 
   //tareas
-  const [taskList, setTaskList] = useState([
-    { title: "hola como va esta tarde todo bien ??, si todo tranquilo sadadss adsasd", id: 24, completed: false },
-    { title: "comó", id: 25, completed: false },
-    { title: "estas", id: 26, completed: false },
-    { title: "?", id: 27, completed: false },
-    { title: "test", id: 28, completed: false },
-    { title: "estas", id: 29, completed: false },
-    { title: "?", id: 30, completed: false },
-    { title: "test", id: 31, completed: false },
-    { title: "test", id: 32, completed: false },
-    { title: "estas", id: 33, completed: false },
-    { title: "?", id: 34, completed: false },
-    { title: "test", id: 35, completed: false },
-  ]);
+  const [taskList, setTaskList] = useState([]);
+
+  const saveTask = (newTasks) => {
+    setTaskList(newTasks);
+    localStorage.setItem("taskList_v1", JSON.stringify(newTasks));
+  };
+
+  useEffect(() => {
+    let taskList_v1 = localStorage.getItem("taskList_v1");
+    setTaskList(taskList_v1 ? JSON.parse(taskList_v1) : []);
+  }, []);
   //contador
   /*
     !!task.completed (!!) doble negacion para devolver un valor true o false .
@@ -50,34 +47,63 @@ function App() {
   });
 
   //Completar tarea
-
   const taskCompleted = (id) => {
     const newTasks = [...taskList];
     const taskIndex = newTasks.findIndex((task) => task.id == id);
     newTasks[taskIndex].completed = true;
-    setTaskList(newTasks);
+    saveTask(newTasks);
   };
-
+  //Marcar como incompleta
   const UndoTaskCompleted = (id) => {
     const newTasks = [...taskList];
     const taskIndex = newTasks.findIndex((task) => task.id == id);
     newTasks[taskIndex].completed = false;
-    setTaskList(newTasks);
+    saveTask(newTasks);
   };
-
+  //Eliminar tarea
   const deleteTask = (id) => {
     const newTasks = [...taskList];
     const taskIndex = newTasks.findIndex((task) => task.id == id);
     newTasks.splice(taskIndex, 1);
-    setTaskList(newTasks);
-  }
+    saveTask(newTasks);
+  };
+
+  //Nueva tarea
+  const [newTaskValue, setNewTaskValue] = useState("");
+  const validate = () => newTaskValue != "" && newTaskValue.length < 70;
+  const addTaskButtonState = validate();
+  const addTask = () => {
+    if (!validate()) return;
+    const newTasks = [...taskList];
+    let newId = 1;
+    newTasks.length > 0 &&
+      (newId = parseInt(newTasks[newTasks.length - 1].id) + 1);
+    const newTask = {
+      id: newId,
+      title: newTaskValue,
+      completed: false,
+    };
+    newTasks.push(newTask);
+    saveTask(newTasks);
+    setNewTaskValue("");
+  };
 
   return (
     <div className="app" style={{ height: `${appHeightm}px` }}>
-      <TodoCreate />
+      <TodoCreate
+        newTaskValue={newTaskValue}
+        setNewTaskValue={setNewTaskValue}
+        addTask={addTask}
+        addTaskButtonState={addTaskButtonState}
+      />
       <TodoCounter tasksCompleted={tasksCompleted} tasksTotal={tasksTotal} />
       <TodoSerch searcValue={searchValue} setSearchValue={setSearchValue} />
-      <TodoList tasks={taskFilter} onComplete={taskCompleted} onUndo={UndoTaskCompleted} onDelete={deleteTask} />
+      <TodoList
+        tasks={taskFilter}
+        onComplete={taskCompleted}
+        onUndo={UndoTaskCompleted}
+        onDelete={deleteTask}
+      />
     </div>
   );
 }

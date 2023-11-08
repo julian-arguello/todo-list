@@ -3,7 +3,7 @@ import style from "./todoItem.module.css";
 
 function TodoItem({ id, title, completed, onComplete, onUndo, onDelete }) {
   return (
-    <li className={`${style.li} ${completed ? style.complete : ""}`}>
+    <li className={`${style.li} ${completed ? style.completed : ""}`}>
       {completed ? (
         <FaUndo
           className={"icon " + style.iconUndo}
