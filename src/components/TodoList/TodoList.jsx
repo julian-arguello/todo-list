@@ -1,20 +1,33 @@
 import { TodoItem } from "../TodoItem/TodoItem.jsx";
+import { TodoItemError } from "../TodoItemError/TodoItemError.jsx";
+import { TodoItemLoading } from "../TodoItemLoading/TodoItemLoading.jsx";
+import { TodoItemEmpty } from "../TodoItemEmpty/TodoItemEmpty.jsx";
 import style from "./todoList.module.css";
+import { useContext } from "react";
+import { TodoContext } from "../../context/TodoContext.jsx";
 
-function TodoList({ tasks, onComplete, onUndo, onDelete }) {
+function TodoList() {
+
+  const { taskFilter, loading, error } = useContext(TodoContext)
+
   return (
     <ul className={style.todoList}>
-      {tasks.reverse().map(({ title, id, completed }) => (
-        <TodoItem
-          key={id}
-          id={id}
-          title={title}
-          completed={completed}
-          onComplete={onComplete}
-          onUndo={onUndo}
-          onDelete={onDelete}
-        />
-      ))}
+      {error && <TodoItemError />}
+      {loading && <TodoItemLoading />}
+      {!loading && !error && taskFilter.length === 0 && <TodoItemEmpty />}
+
+      {!loading && taskFilter.length >= 1 && (
+        <>
+          {taskFilter.reverse().map(({ title, id, completed }) => (
+            <TodoItem
+              key={id}
+              id={id}
+              title={title}
+              completed={completed}
+            />
+          ))}
+        </>
+      )}
     </ul>
   );
 }

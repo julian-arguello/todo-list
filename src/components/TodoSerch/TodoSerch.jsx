@@ -1,8 +1,11 @@
 import { FaSearch } from "react-icons/fa";
 import style from "./todoSerch.module.css";
-import { useState } from "react";
+import { TodoContext } from "../../context/TodoContext";
+import { useContext } from "react";
 
-function TodoSerch({searcValue, setSearchValue}) {
+function TodoSerch() {
+
+  const { searcValue, setSearchValue } = useContext(TodoContext)
  
   return (
     <div className={style.searchContainer}>

@@ -1,14 +1,11 @@
 import { FaPlus } from "react-icons/fa";
 import style from "./TodoCreateMobile.module.css";
 import { TodoModalCard } from "../../TodoModalCard/TodoModalCard";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { TodoContext } from "../../../context/TodoContext";
 
-function TodoCreateMobile({
-  newTaskValue,
-  setNewTaskValue,
-  addTask,
-  addTaskButtonState,
-}) {
+function TodoCreateMobile() {
+  const { newTaskValue, setNewTaskValue, addTask, addTaskButtonState } = useContext(TodoContext);
   const [showModal, SetShowModal] = useState(false);
 
   return (

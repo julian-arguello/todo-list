@@ -7,6 +7,7 @@
   --grey: #333745;
   --grey-50: rgba(51, 55, 69, 0.5);
   --white: #FFFFFF;
+  --ligh-black: rgba(187, 187, 187, 0.1);
   --light-gray: #F1F2F6;
   --light-gray-50: rgba(241, 242, 246, 0.50);
   --violet: #966AF2;
@@ -39,12 +40,45 @@ body {
   grid-template-rows: repeat(12, 1fr);
 }
 
+li {
+  grid-column: 2 / span 10;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 3.8rem;
+  flex-shrink: 0;
+  border-radius: var(--b-radius);
+  background: var(--white);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: var(--grey);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  margin-top: 1rem;
+  transition: background 0.3s; /* Transición de color de fondo */
+}
+
+li p {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+}
+
 .icon {
   display: flex;
   align-items: center;
   height: 100%;
   padding: 0 0.6rem;
 }
+
+.spinner {
+  animation: spin infinite 1s linear;
+  color: var(--violet);
+}
+
+.iconInfo {
+  font-size: 1.5rem;
+}
+
 
 button,
 input {
@@ -56,11 +90,27 @@ input {
   cursor: pointer;
 }
 
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
 @media (min-width: 768px) {
 
   .app {
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 1fr auto auto repeat(9, 1fr);
+  }
+
+  li {
+    max-width: 26rem;
+    grid-column: 3 / span 8;
   }
 
 }

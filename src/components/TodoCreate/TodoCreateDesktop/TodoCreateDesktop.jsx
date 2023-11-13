@@ -1,12 +1,11 @@
 import style from "./TodoCreateDesktop.module.css";
 import todoSvg from "./../../../assets/svg/todoSvg.svg";
+import { useContext } from "react";
+import { TodoContext } from "../../../context/TodoContext";
 
-function TodoCreateDesktop({
-  newTaskValue,
-  setNewTaskValue,
-  addTask,
-  addTaskButtonState,
-}) {
+function TodoCreateDesktop() {
+  const { newTaskValue, setNewTaskValue, addTask, addTaskButtonState } = useContext(TodoContext);
+
   return (
     <div className={style.container}>
       <h2 className={style.title}>Create new task</h2>
