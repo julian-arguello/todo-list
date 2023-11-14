@@ -5,7 +5,7 @@ import { useContext } from "react";
 
 function TodoItem({ id, title, completed }) {
 
-  const { taskCompleted, UndoTaskCompleted, deleteTask } = useContext(TodoContext);
+  const { taskCompleted, UndoTaskCompleted, setShowModalDelete, setTaskDataDelete } = useContext(TodoContext);
 
   return (
     <li className={`${style.li} ${completed ? style.completed : ""}`}>
@@ -20,10 +20,14 @@ function TodoItem({ id, title, completed }) {
           onClick={() => taskCompleted(id)}
         />
       )}
-      <p className={style.contentItem}>{title + ' ' + id}</p>
+      <p className={style.contentItem}>{title}</p>
       <FaTimes
         className={"icon " + style.iconClose}
-        onClick={() => deleteTask(id)}
+        // onClick={() => deleteTask(id)}
+        onClick={() => {
+          setTaskDataDelete({'title': title, 'id': id})
+          setShowModalDelete(true)
+        }}
       />
     </li>
   );

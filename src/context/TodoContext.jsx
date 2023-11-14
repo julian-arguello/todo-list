@@ -1,9 +1,13 @@
-import { createContext, useState  } from "react";
+import { createContext, useState } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage.js";
 
 const TodoContext = createContext();
 
 function TodoProvider({ children }) {
+  //Modals
+  const [showModalCreate, setShowModalCreate] = useState(false);
+  const [showModalDelete, setShowModalDelete] = useState(false);
+  const [taskDataDelete, setTaskDataDelete] = useState({});
 
   //tareas
   //Custom Hook
@@ -87,6 +91,12 @@ function TodoProvider({ children }) {
         deleteTask,
         loading,
         error,
+        showModalCreate,
+        setShowModalCreate,
+        showModalDelete,
+        setShowModalDelete,
+        taskDataDelete,
+        setTaskDataDelete,
       }}
     >
       {children}

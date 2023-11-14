@@ -8,13 +8,13 @@ import { TodoContext } from "../../context/TodoContext.jsx";
 
 function TodoList() {
 
-  const { taskFilter, loading, error } = useContext(TodoContext)
+  const {taskList, taskFilter, loading, error } = useContext(TodoContext)
 
   return (
     <ul className={style.todoList}>
       {error && <TodoItemError />}
       {loading && <TodoItemLoading />}
-      {!loading && !error && taskFilter.length === 0 && <TodoItemEmpty />}
+      {!loading && !error && taskList.length === 0 && <TodoItemEmpty />}
 
       {!loading && taskFilter.length >= 1 && (
         <>
