@@ -11,12 +11,9 @@ function TodoDelete() {
     <Modal
       title={"Delete task"}
       titleButtonCancel={"Cancel"}
-      actionCancel={() => setShowModalDelete(false)}
+      actionClose={() => setShowModalDelete(false)}
       titleButtonSuccess={"Delete"}
-      actionSuccess={() => {
-        deleteTask(taskDataDelete.id);
-        setShowModalDelete(false);
-      }}
+      actionSuccess={() => deleteTask(taskDataDelete.id)}
       actionSuccessButtonDisabled={false}
     >
       <p className={style.p}>{taskDataDelete.title}</p>

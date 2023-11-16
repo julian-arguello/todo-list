@@ -12,10 +12,24 @@
   background-repeat: no-repeat;
   text-decoration: line-through;
 }
+.li p{
+  min-height: 3.8rem;
+  padding: 0.5rem;
+  box-sizing: border-box;
+ }
 
 .complete p {
   color: var(--grey);
   text-decoration: line-through;
+}
+
+.span {
+  transition:  0.3s ease;
+  display: block;
+  
+}
+.span:hover {
+  color: var(--violet);
 }
 
 .contentItem {

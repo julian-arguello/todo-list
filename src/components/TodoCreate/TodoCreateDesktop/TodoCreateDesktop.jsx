@@ -15,6 +15,7 @@ function TodoCreateDesktop() {
         placeholder="New task"
         value={newTaskValue}
         onChange={(e) => setNewTaskValue(e.target.value)}
+        onKeyUp={(e) => {(e.key === "Enter" && addTaskButtonState) && addTask()}}
       />
       <button
         className={style.button}

@@ -4,8 +4,14 @@ import { TodoContext } from "../../context/TodoContext";
 import { useContext } from "react";
 
 function TodoItem({ id, title, completed }) {
-
-  const { taskCompleted, UndoTaskCompleted, setShowModalDelete, setTaskDataDelete } = useContext(TodoContext);
+  const {
+    taskCompleted,
+    UndoTaskCompleted,
+    setShowModalDelete,
+    setTaskDataDelete,
+    setShowModalEdit,
+    setTaskDataEdit,
+  } = useContext(TodoContext);
 
   return (
     <li className={`${style.li} ${completed ? style.completed : ""}`}>
@@ -20,13 +26,24 @@ function TodoItem({ id, title, completed }) {
           onClick={() => taskCompleted(id)}
         />
       )}
-      <p className={style.contentItem}>{title}</p>
+      <p className={style.contentItem}>
+        <span
+          className={style.span}
+          title="press the text to edit"
+          onClick={() => {
+            setTaskDataEdit({ id: id, title: title });
+            setShowModalEdit(true);
+          }}
+        >
+          {title}
+        </span>
+      </p>
       <FaTimes
         className={"icon " + style.iconClose}
         // onClick={() => deleteTask(id)}
         onClick={() => {
-          setTaskDataDelete({'title': title, 'id': id})
-          setShowModalDelete(true)
+          setTaskDataDelete({ id: id, title: title });
+          setShowModalDelete(true);
         }}
       />
     </li>

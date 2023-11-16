@@ -12,9 +12,9 @@ function TodoList() {
 
   return (
     <ul className={style.todoList}>
-      {error && <TodoItemError />}
+      {(error && taskList.length === 0) && <TodoItemError />}
       {loading && <TodoItemLoading />}
-      {!loading && !error && taskList.length === 0 && <TodoItemEmpty />}
+      {(!loading && !error && taskList.length === 0) && <TodoItemEmpty />}
 
       {!loading && taskFilter.length >= 1 && (
         <>

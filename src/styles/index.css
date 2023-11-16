@@ -1,24 +1,24 @@
 /* Fonts */
-@import './normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@500;600;700&display=swap');
+@import "./normalize.css";
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@500;600;700&display=swap");
 
 /* Colors */
 :root {
   --grey: #333745;
   --grey-50: rgba(51, 55, 69, 0.5);
-  --white: #FFFFFF;
+  --white: #ffffff;
   --ligh-black: rgba(187, 187, 187, 0.1);
-  --light-gray: #F1F2F6;
-  --light-gray-50: rgba(241, 242, 246, 0.50);
-  --violet: #966AF2;
-  --green: #E4F862;
-  --red: #FF715B;
+  --light-gray: #f1f2f6;
+  --light-gray-50: rgba(241, 242, 246, 0.5);
+  --violet: #966af2;
+  --green: #e4f862;
+  --red: #ff715b;
   --cover: rgba(64, 67, 75, 0.7);
   --b-radius: 0.625rem;
 
   --desktop-breakpoint: 768px;
 
-  --font: 'Red Hat Text'
+  --font: "Red Hat Text";
 }
 
 * {
@@ -29,6 +29,10 @@
 
 body {
   background-color: var(--light-gray);
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Estándar */
 }
 
 .app {
@@ -45,7 +49,6 @@ li {
   list-style: none;
   padding: 0;
   margin: 0;
-  height: 3.8rem;
   flex-shrink: 0;
   border-radius: var(--b-radius);
   background: var(--white);
@@ -55,12 +58,14 @@ li {
   grid-template-columns: auto 1fr auto;
   margin-top: 1rem;
   transition: background 0.3s; /* Transición de color de fondo */
+  min-height: 3.8rem;
 }
 
 li p {
+  min-height: 3.8rem;
   display: flex;
   align-items: center;
-  padding: 0.5rem;
+
 }
 
 .icon {
@@ -79,7 +84,6 @@ li p {
   font-size: 1.5rem;
 }
 
-
 button,
 input {
   border: none;
@@ -90,7 +94,6 @@ input {
   cursor: pointer;
 }
 
-
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -100,11 +103,8 @@ input {
   }
 }
 
-
 @media (min-width: 768px) {
-
   .app {
-    grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 1fr auto auto repeat(9, 1fr);
   }
 
@@ -112,5 +112,4 @@ input {
     max-width: 26rem;
     grid-column: 3 / span 8;
   }
-
 }

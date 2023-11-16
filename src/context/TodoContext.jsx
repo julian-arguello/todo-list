@@ -7,7 +7,9 @@ function TodoProvider({ children }) {
   //Modals
   const [showModalCreate, setShowModalCreate] = useState(false);
   const [showModalDelete, setShowModalDelete] = useState(false);
+  const [showModalEdit, setShowModalEdit] = useState(false);
   const [taskDataDelete, setTaskDataDelete] = useState({});
+  const [taskDataEdit, setTaskDataEdit] = useState({});
 
   //tareas
   //Custom Hook
@@ -53,24 +55,37 @@ function TodoProvider({ children }) {
     setTaskList(newTasks);
   };
 
+  //validate
+  const validate = (title) => title !== "" && title.trim().length < 70 && title.trim().length > 0;
+
   //Nueva tarea
   const [newTaskValue, setNewTaskValue] = useState("");
-  const validate = () => newTaskValue !== "" && newTaskValue.length < 70;
-  const addTaskButtonState = validate();
+
+  const addTaskButtonState = validate(newTaskValue);
+
   const addTask = () => {
-    if (!validate()) return;
+    if (!validate(newTaskValue)) return;
     const newTasks = [...taskList];
     let newId = 1;
     newTasks.length > 0 &&
       (newId = parseInt(newTasks[newTasks.length - 1].id) + 1);
     const newTask = {
       id: newId,
-      title: newTaskValue,
+      title: newTaskValue.trim(),
       completed: false,
     };
     newTasks.push(newTask);
     setTaskList(newTasks);
     setNewTaskValue("");
+  };
+
+  //Editar Tarea
+  const editTask = (id, title) => {
+    if (!validate(title)) return;
+    const newTasks = [...taskList];
+    const taskIndex = newTasks.findIndex((task) => task.id === id);
+    newTasks[taskIndex].title = title;
+    setTaskList(newTasks);
   };
 
   return (
@@ -97,6 +112,12 @@ function TodoProvider({ children }) {
         setShowModalDelete,
         taskDataDelete,
         setTaskDataDelete,
+        showModalEdit,
+        setShowModalEdit,
+        taskDataEdit,
+        setTaskDataEdit,
+        editTask,
+        validate,
       }}
     >
       {children}

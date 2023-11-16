@@ -17,18 +17,16 @@ function TodoCreateMobile() {
     <Modal
       title={"Create new task"}
       titleButtonCancel={"Cancel"}
-      actionCancel={() => setShowModalCreate(false)}
+      actionClose={() => setShowModalCreate(false)}
       titleButtonSuccess={"Add"}
-      actionSuccess={() => {addTask(); setShowModalCreate(false) }}
+      actionSuccess={() => addTask()}
       actionSuccessButtonDisabled={!addTaskButtonState}
     >
-      <input
-        type="text"
-        className={style.input}
-        placeholder="New task"
+      <textarea
+        className={style.textarea}
         value={newTaskValue}
         onChange={(e) => setNewTaskValue(e.target.value)}
-      />
+      ></textarea>
     </Modal>
   );
 }
