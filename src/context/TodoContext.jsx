@@ -56,7 +56,7 @@ function TodoProvider({ children }) {
   };
 
   //validate
-  const validate = (title) => title !== "" && title.trim().length < 70 && title.trim().length > 0;
+  const validate = (title) => title !== "" && title.trim().length < 140 && title.trim().length > 0;
 
   //Nueva tarea
   const [newTaskValue, setNewTaskValue] = useState("");

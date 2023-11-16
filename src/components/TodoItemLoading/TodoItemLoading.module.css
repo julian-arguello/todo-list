@@ -1,3 +1,5 @@
 .skeleton {
   background-color: var(--ligh-black);
+  min-height: 3.8rem;
+
 }

@@ -58,7 +58,6 @@ li {
   grid-template-columns: auto 1fr auto;
   margin-top: 1rem;
   transition: background 0.3s; /* Transición de color de fondo */
-  min-height: 3.8rem;
 }
 
 li p {
