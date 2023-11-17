@@ -6,7 +6,7 @@ import { useContext } from "react";
 function TodoSerch() {
   const { searcValue, setSearchValue } = useContext(TodoContext);
 
-  const clearSearch = () => {
+  const searchCleaner = () => {
     setSearchValue("");
     document.getElementById("search").value = "";
   };
@@ -28,7 +28,7 @@ function TodoSerch() {
         />
         <FaTimes
           className={"icon " + style.iconClose}
-          onClick={() => clearSearch()}
+          onClick={() => searchCleaner()}
         />
       </div>
     </div>
