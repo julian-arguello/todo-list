@@ -64,7 +64,6 @@ li p {
   min-height: 3.8rem;
   display: flex;
   align-items: center;
-
 }
 
 .icon {
@@ -72,6 +71,7 @@ li p {
   align-items: center;
   height: 100%;
   padding: 0 0.6rem;
+  transition: 0.3s ease;
 }
 
 .spinner {

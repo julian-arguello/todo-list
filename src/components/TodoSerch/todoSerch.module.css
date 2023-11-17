@@ -5,12 +5,14 @@
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   align-items: flex-end;
-
 }
 
 .inputContainer {
-  position: relative;
   grid-column: 1 / span 12;
+  background: var(--violet);
+  border-radius: 0.625rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
 }
 
 .iconSerch * {
@@ -21,23 +23,27 @@
 }
 
 .iconSerch {
-  position: absolute;
-  left: 0;
   color: var(--light-gray);
+}
+
+.iconSerch * {
+  transition: 0.3s ease;
+}
+
+.iconSerch:hover * {
+  color: var(--grey);
 }
 
 .input {
   border: none;
   margin: 0;
   padding: 0;
-  border-radius: 0.625rem;
-  background: var(--violet);
   color: var(--light-gray);
   height: 3.8rem;
   text-align: center;
   font-weight: bold;
   font-size: 1rem;
-  width: 100%;
+  padding: 0 0.5rem;
 }
 
 .input:focus {
@@ -48,8 +54,16 @@
   color: var(--light-gray-50);
 }
 
-@media (min-width: 768px) {
+.iconClose {
+  color: var(--light-gray);
+  font-size: 0.8rem;
+}
 
+.iconClose:hover {
+  color: var(--red);
+}
+
+@media (min-width: 768px) {
   .input {
     max-width: 26rem;
   }

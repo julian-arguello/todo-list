@@ -1,12 +1,16 @@
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaTimes } from "react-icons/fa";
 import style from "./todoSerch.module.css";
 import { TodoContext } from "../../context/TodoContext";
 import { useContext } from "react";
 
 function TodoSerch() {
+  const { searcValue, setSearchValue } = useContext(TodoContext);
 
-  const { searcValue, setSearchValue } = useContext(TodoContext)
- 
+  const clearSearch = () => {
+    setSearchValue("");
+    document.getElementById("search").value = "";
+  };
+
   return (
     <div className={style.searchContainer}>
       <div className={style.inputContainer}>
@@ -21,6 +25,10 @@ function TodoSerch() {
           id="search"
           name="search"
           placeholder="Search task"
+        />
+        <FaTimes
+          className={"icon " + style.iconClose}
+          onClick={() => clearSearch()}
         />
       </div>
     </div>
