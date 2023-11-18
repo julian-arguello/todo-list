@@ -1,107 +1,110 @@
 .cover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    background: var(--cover);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0; 
-    transition: opacity 0.3s ease; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: var(--cover);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 15vh 0;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .card {
-    border-radius: 0.625rem;
-    background: var(--white);
-    font-family: var(--font);
-    width: 20rem;
-    height: 17.625rem;
-    display: flex;
-    flex-direction:column;
-    align-items: center;
-    justify-content: space-around;
-    position: relative;
-    transform: scale(0.7); 
-    transition: transform 0.3s ease;
+  border-radius: 0.625rem;
+  background: var(--white);
+  font-family: var(--font);
+  width: 20rem;
+  height: 17.625rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  transform: scale(0.7);
+  transition: transform 0.3s ease;
 }
 
 .coverShow {
-    opacity: 1; 
+  opacity: 1;
 }
 
 .cardShow {
-    transform: scale(1); 
+  transform: scale(1);
 }
 
 .title {
-    color: var(--grey);
-    text-align: center;
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
+  color: var(--grey);
+  text-align: center;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
-
 .buttonContainer {
-    width: 17.5rem;
-    display: flex;
-    justify-content: space-between;
+  width: 17.5rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .button {
-    width: 8.125rem;
-    height: 2.875rem;
-    flex-shrink: 0;
-    color: var(--white);
-    color: #FFF;
-    text-align: center;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    border-radius: 0.625rem;
+  width: 8.125rem;
+  height: 2.875rem;
+  flex-shrink: 0;
+  color: var(--white);
+  color: #fff;
+  text-align: center;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border-radius: 0.625rem;
 }
 
 .buttonCancel {
-    background-color: var(--grey);
+  background-color: var(--grey);
 }
 
 .buttonAdd {
-    background-color: var(--violet);
-    transition: background 0.3s;
+  background-color: var(--violet);
 }
 
 .button:disabled {
-    background: var(--cover);
-  
-    background-image: linear-gradient(to right, var(--cover) 0%, var(--cover) 100%); /* Establece el color de fondo inicial en blanco */
-    background-size: 0% 100%; /* Inicialmente, el color de fondo está completamente transparente */
-    background-repeat: no-repeat;
-  }
+  background: var(--cover);
 
-.buttonClose {
-    width: 2.5rem;
-    height: 2.5rem;
-    flex-shrink: 0;
-    border-radius: 3.375rem;
-    font-size: 1.2rem;
-    background: var(--grey);
-    color: var(--white);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: -1.2rem;
-    right: -1.2rem;
+  background-image: linear-gradient(
+    to right,
+    var(--cover) 0%,
+    var(--cover) 100%
+  ); /* Establece el color de fondo inicial en blanco */
+  background-size: 0% 100%; /* Inicialmente, el color de fondo está completamente transparente */
+  background-repeat: no-repeat;
 }
 
+.buttonClose {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  border-radius: 3.375rem;
+  font-size: 1.2rem;
+  background: var(--grey);
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -1.2rem;
+  right: -1.2rem;
+}
 
-@media (min-width:576px) {
-    .card {
-        grid-column: 4 / span 6;
-    }
+@media (min-width: 576px) {
+  .card {
+    grid-column: 4 / span 6;
+  }
 }

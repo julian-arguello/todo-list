@@ -25,6 +25,7 @@
   /* outline: 1px solid #FF715B; */
   margin: 0;
   padding: 0;
+  
 }
 
 body {
@@ -57,7 +58,6 @@ li {
   display: grid;
   grid-template-columns: auto 1fr auto;
   margin-top: 1rem;
-  transition: background 0.3s; /* Transición de color de fondo */
 }
 
 li p {
@@ -91,6 +91,14 @@ input {
   background: none;
   font: inherit;
   cursor: pointer;
+}
+
+button{
+  transition: 0.3s ease; 
+}
+
+button:hover {
+  scale: 1.02;
 }
 
 @keyframes spin {

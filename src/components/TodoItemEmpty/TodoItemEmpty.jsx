@@ -1,10 +1,21 @@
-import {  BiRocket } from "react-icons/bi";
+import { BiRocket } from "react-icons/bi";
+import { FaSearchMinus } from "react-icons/fa";
 
-function TodoItemEmpty() {
+function TodoItemEmpty(filter = false) {
   return (
     <li>
-      <BiRocket className={"icon iconInfo"} />
-      <p>Create your first task</p>
+      {!filter ? 
+      <>
+        <BiRocket className={"icon iconInfo"} />
+        <p>Create your first task</p>
+      </>
+      :
+      <>
+      <FaSearchMinus  className={"icon"} />
+      <p>Sin resultados de busqueda</p>
+      </>
+
+      }
     </li>
   );
 }

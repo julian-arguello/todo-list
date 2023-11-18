@@ -15,6 +15,7 @@ function TodoList() {
       {(error && taskList.length === 0) && <TodoItemError />}
       {loading && <TodoItemLoading />}
       {(!loading && !error && taskList.length === 0) && <TodoItemEmpty />}
+      {(!loading && !error && taskFilter.length === 0) && <TodoItemEmpty filter={true}/>}
 
       {!loading && taskFilter.length >= 1 && (
         <>

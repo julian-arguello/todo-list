@@ -9,12 +9,16 @@ import { TodoEdit } from "../components/TodoEdit/TodoEdit.jsx";
 import { useContext } from "react";
 import { TodoContext } from "../context/TodoContext.jsx";
 
+import { Notification } from "../components/Notification/Notification.jsx";
+
 function AppUI({ appHeight }) {
-  const { showModalCreate, showModalDelete, showModalEdit } =
+  const { showModalCreate, showModalDelete, showModalEdit, notification } =
     useContext(TodoContext);
 
   return (
     <div className="app" style={{ height: `${appHeight}px` }}>
+      
+      {notification.show && <Notification />}
       <TodoCreateDesktop />
       <TodoCounter />
       <TodoSerch />

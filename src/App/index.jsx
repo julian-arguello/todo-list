@@ -10,8 +10,9 @@ function App() {
       const adjustHeight = () => setAppHeight(window.innerHeight);
       adjustHeight();
       window.addEventListener("resize", adjustHeight);
+      console.log(appHeight)
       return () => window.removeEventListener("resize", adjustHeight);
-    }, []);
+    }, [appHeight]);
 
   return (
     <TodoProvider>

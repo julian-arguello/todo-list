@@ -1,7 +1,7 @@
 import { FaCheck, FaUndo, FaTimes } from "react-icons/fa";
 import style from "./todoItem.module.css";
 import { TodoContext } from "../../context/TodoContext";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 
 function TodoItem({ id, title, completed }) {
   const {
@@ -13,8 +13,14 @@ function TodoItem({ id, title, completed }) {
     setTaskDataEdit,
   } = useContext(TodoContext);
 
+  const [showItem, setShowItem] = useState(false)
+
+  useEffect(() => {
+    setShowItem(true)
+  }, [])
+
   return (
-    <li className={`${style.li} ${completed ? style.completed : ""}`}>
+    <li className={`${style.li} ${showItem && style.show} ${completed ? style.completed : ""}`}>
       {completed ? (
         <FaUndo
           className={"icon " + style.icUndoTaskCompleted}

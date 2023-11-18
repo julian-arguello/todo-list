@@ -11,6 +11,12 @@ function TodoProvider({ children }) {
   const [taskDataDelete, setTaskDataDelete] = useState({});
   const [taskDataEdit, setTaskDataEdit] = useState({});
 
+  const [notification, setNotification] = useState({
+    show: true,
+    type: "",
+    msg: "",
+  });
+
   //tareas
   //Custom Hook
   const {
@@ -53,10 +59,28 @@ function TodoProvider({ children }) {
     const taskIndex = newTasks.findIndex((task) => task.id === id);
     newTasks.splice(taskIndex, 1);
     setTaskList(newTasks);
+    setNotification({
+      show: true,
+      type: "success",
+      msg: "Task Delete Successfully",
+    });
   };
 
   //validate
-  const validate = (title) => title !== "" && title.trim().length < 140 && title.trim().length > 0;
+  const validate = (title) => {
+    let titleSanitized = title.trim();
+    let titleLength = titleSanitized.length;
+    let limiteCaracteresConsecutivos = 20;
+    let patron = new RegExp(
+      `([^\\s])\\1{${limiteCaracteresConsecutivos - 1},}`
+    );
+    return (
+      title !== "" &&
+      titleLength < 140 &&
+      titleLength > 0 &&
+      !patron.test(title)
+    );
+  };
 
   //Nueva tarea
   const [newTaskValue, setNewTaskValue] = useState("");
@@ -86,6 +110,11 @@ function TodoProvider({ children }) {
     const taskIndex = newTasks.findIndex((task) => task.id === id);
     newTasks[taskIndex].title = title;
     setTaskList(newTasks);
+    setNotification({
+      show: true,
+      type: "success",
+      msg: "Task Edited Successfully",
+    });
   };
 
   return (
@@ -118,6 +147,8 @@ function TodoProvider({ children }) {
         setTaskDataEdit,
         editTask,
         validate,
+        notification,
+        setNotification,
       }}
     >
       {children}
