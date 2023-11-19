@@ -13,6 +13,11 @@
   border-radius: 0.625rem;
   display: grid;
   grid-template-columns: auto 1fr auto;
+  transition: 0.3s ease;
+}
+
+.disable{
+  background: var(--cover); 
 }
 
 .iconSerch * {
@@ -20,14 +25,11 @@
   justify-content: center;
   align-items: center;
   color: var(--light-gray);
+  transition: 0.3s ease;
 }
 
 .iconSerch {
   color: var(--light-gray);
-}
-
-.iconSerch * {
-  transition: 0.3s ease;
 }
 
 .iconSerch:hover * {
@@ -44,6 +46,8 @@
   font-weight: bold;
   font-size: 1rem;
   padding: 0 0.5rem;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .input:focus {
@@ -64,9 +68,6 @@
 }
 
 @media (min-width: 768px) {
-  .input {
-    max-width: 26rem;
-  }
 
   .searchContainer {
     grid-column: 7 / span 6;

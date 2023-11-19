@@ -14,7 +14,7 @@ function TodoEdit() {
       title={"Edit task"}
       titleButtonCancel={"Cancel"}
       actionClose={() => setShowModalEdit(false)}
-      titleButtonSuccess={"Edit"}
+      titleButtonSuccess={"Saved"}
       actionSuccess={() => editTask(taskDataEdit.id, title.trim())}
       actionSuccessButtonDisabled={!validate(title)}
     >

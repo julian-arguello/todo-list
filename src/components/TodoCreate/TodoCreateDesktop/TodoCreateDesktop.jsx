@@ -29,7 +29,7 @@ function TodoCreateDesktop() {
         className={`${style.button} ${!addTaskButtonState && style.disabled}`}
         onClick={actionClick}
       >
-        Add task
+        Create task
       </button>
       <div className={style.todoContainerSvg}>
         <img className={style.todoSvg} src={todoSvg} alt="todoSvg" />

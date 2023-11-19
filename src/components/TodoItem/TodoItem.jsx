@@ -46,7 +46,6 @@ function TodoItem({ id, title, completed }) {
       </p>
       <FaTimes
         className={"icon " + style.iconClose}
-        // onClick={() => deleteTask(id)}
         onClick={() => {
           setTaskDataDelete({ id: id, title: title });
           setShowModalDelete(true);

@@ -1,5 +1,15 @@
-.skeleton {
-  background-color: var(--ligh-black);
-  min-height: 3.8rem;
+@keyframes loadingAnimation {
+  0% {
+    background-color: var(--white); /* Color inicial: rojo */
+  }
+  100% {
+    background-color: var(--light-gray-50); /* Color final: gris */
+  }
+}
 
+.skeleton {
+  animation: loadingAnimation 0.3s infinite alternate; /* 1.5 segundos para una transición suave, alterna entre los colores y repite infinitamente */
+  transition: background-color 0.3s ease; /* Transición suave de color en 0.5 segundos */
+  min-height: 3.8rem;
+  width: 100%;
 }

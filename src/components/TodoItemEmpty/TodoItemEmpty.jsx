@@ -1,7 +1,8 @@
 import { BiRocket } from "react-icons/bi";
 import { FaSearchMinus } from "react-icons/fa";
 
-function TodoItemEmpty(filter = false) {
+function TodoItemEmpty({filter = false}) {
+
   return (
     <li>
       {!filter ? 
@@ -12,7 +13,7 @@ function TodoItemEmpty(filter = false) {
       :
       <>
       <FaSearchMinus  className={"icon"} />
-      <p>Sin resultados de busqueda</p>
+      <p>No search results</p>
       </>
 
       }

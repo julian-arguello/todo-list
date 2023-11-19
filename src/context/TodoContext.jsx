@@ -12,7 +12,7 @@ function TodoProvider({ children }) {
   const [taskDataEdit, setTaskDataEdit] = useState({});
 
   const [notification, setNotification] = useState({
-    show: true,
+    show: false,
     type: "",
     msg: "",
   });

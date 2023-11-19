@@ -18,7 +18,7 @@ function TodoCreateMobile() {
       title={"Create new task"}
       titleButtonCancel={"Cancel"}
       actionClose={() => setShowModalCreate(false)}
-      titleButtonSuccess={"Add"}
+      titleButtonSuccess={"Create"}
       actionSuccess={() => addTask()}
       actionSuccessButtonDisabled={!addTaskButtonState}
     >

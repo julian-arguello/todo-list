@@ -31,7 +31,7 @@ function Notification() {
         setNotification(closeNotification);
       }, 300);
     };
-  }, [setNotification]);
+  }, []);
 
   //typeClass
   const typeClass =
