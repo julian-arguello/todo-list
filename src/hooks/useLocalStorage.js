@@ -1,5 +1,13 @@
 import { useState, useEffect } from "react";
 // Custom hook
+
+/**
+ * Custom Hook, encargado de manjear el local storage.
+ *
+ * @param itemName
+ * @param initianValue
+ * @returns
+ */
 function useLocalStorage(itemName, initianValue) {
   const [item, setItem] = useState(initianValue);
   const [loading, setLoading] = useState(true);
@@ -9,8 +17,9 @@ function useLocalStorage(itemName, initianValue) {
     try {
       let localStorageItem = localStorage.getItem(itemName);
       setItem(localStorageItem ? JSON.parse(localStorageItem) : initianValue);
+
       setTimeout(() => {
-      setLoading(false);
+        setLoading(false);
       }, 500);
     } catch (error) {
       setLoading(false);

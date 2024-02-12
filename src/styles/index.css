@@ -4,10 +4,13 @@
 
 /* Colors */
 :root {
+  --black: #000000;
+
   --grey: #333745;
   --grey-50: rgba(51, 55, 69, 0.5);
   --white: #ffffff;
   --ligh-black: rgba(187, 187, 187, 0.1);
+  --ligh-black2: #16181c;
   --light-gray: #f1f2f6;
   --light-gray-50: rgba(241, 242, 246, 0.5);
   --violet: #966af2;
@@ -20,10 +23,9 @@
 }
 
 * {
-  /* outline: 1px solid #FF715B; */
+  /*outline: 1px solid #FF715B;*/
   margin: 0;
   padding: 0;
-  
 }
 
 body {
@@ -32,6 +34,11 @@ body {
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Estándar */
+  transition: background-color 0.5s ease;
+}
+
+.bodyDark {
+  background-color: var(--black);
 }
 
 .app {
@@ -91,8 +98,8 @@ input {
   cursor: pointer;
 }
 
-button{
-  transition: 0.3s ease; 
+button {
+  transition: 0.3s ease;
 }
 
 button:hover {

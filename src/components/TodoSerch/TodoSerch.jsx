@@ -8,7 +8,11 @@ function TodoSerch() {
 
   return (
     <div className={style.searchContainer}>
-      <div className={`${style.inputContainer} ${tasksTotal == 0 && style.disable}`}>
+      <div
+        className={`${style.inputContainer} ${
+          tasksTotal == 0 && style.disable
+        }`}
+      >
         <label htmlFor="search" className={"icon " + style.iconSerch}>
           <FaSearch />
         </label>

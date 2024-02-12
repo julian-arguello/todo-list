@@ -3,16 +3,15 @@ import { AppUI } from "./AppUI.jsx";
 import { useEffect, useState } from "react";
 
 function App() {
+  //aujstar pantalla
+  const [appHeight, setAppHeight] = useState(0);
 
-    //aujstar pantalla
-    const [appHeight, setAppHeight] = useState(0);
-    useEffect(() => {
-      const adjustHeight = () => setAppHeight(window.innerHeight);
-      adjustHeight();
-      window.addEventListener("resize", adjustHeight);
-      console.log(appHeight)
-      return () => window.removeEventListener("resize", adjustHeight);
-    }, [appHeight]);
+  useEffect(() => {
+    const adjustHeight = () => setAppHeight(window.innerHeight);
+    adjustHeight();
+    window.addEventListener("resize", adjustHeight);
+    return () => window.removeEventListener("resize", adjustHeight);
+  }, [appHeight]);
 
   return (
     <TodoProvider>

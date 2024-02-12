@@ -5,20 +5,31 @@ const TodoContext = createContext();
 
 function TodoProvider({ children }) {
   //Modals
+  // Modal para crear nuevo tarea.
   const [showModalCreate, setShowModalCreate] = useState(false);
+  // Modal para eliminar un tarea.
   const [showModalDelete, setShowModalDelete] = useState(false);
+  // Modal para editar un tarea.
   const [showModalEdit, setShowModalEdit] = useState(false);
+
+  /**
+   * Info que se mostrara en los modales sobre la tarea a eliminar o editar.
+   */
   const [taskDataDelete, setTaskDataDelete] = useState({});
   const [taskDataEdit, setTaskDataEdit] = useState({});
 
+  /**
+   * notificaciones.
+   */
   const [notification, setNotification] = useState({
     show: false,
     type: "",
     msg: "",
   });
 
-  //tareas
-  //Custom Hook
+  /**
+   * Guardamos la lista de tareas en localStorage (Custom Hook).
+   */
   const {
     item: taskList,
     saveItem: setTaskList,
@@ -26,34 +37,59 @@ function TodoProvider({ children }) {
     error,
   } = useLocalStorage("taskList_v1", []);
 
-  //contador
-  // ESTADOS DERIVADOS se crean a partir de un usestate
-  const tasksCompleted = taskList.filter((task) => !!task.completed).length; //(!!) doble negacion para devolver un valor true o false
+  /*
+   * Guardamos el esatado de darkMode en localStorage (Custom Hook).
+   */
+  const {
+    item: darkMode,
+    saveItem: setDarkMode,
+    loading: darkModeLoading,
+    error: darkModeError,
+  } = useLocalStorage("darkMode_v1", false);
+
+  /**
+   * Contadores (ESTADOS DERIVADOS se crean a partir de un usestate).
+   */
+  const tasksCompleted = taskList.filter((task) => !!task.completed).length; //(!!) doble negacion para devolver un valor true o false.
   const tasksTotal = taskList.length;
 
-  //input buscar
-  const [searchValue, setSearchValue] = useState("");
-  //fintrar
+  /**
+   * Buscar Tarea..
+   */
+  const [searchValue, setSearchValue] = useState(""); // input del buscardor.
+  //Filtrar.
   const taskFilter = taskList.filter((task) => {
     const taskTitle = task.title.toLowerCase();
     const taskSearch = searchValue.toLowerCase();
     return taskTitle.includes(taskSearch);
   });
-  //Completar tarea
+
+  /**
+   * Marcar tarea como Completa.
+   * @param {number|string} id - ID de la tarea.
+   */
   const taskCompleted = (id) => {
     const newTasks = [...taskList];
     const taskIndex = newTasks.findIndex((task) => task.id === id);
     newTasks[taskIndex].completed = true;
     setTaskList(newTasks);
   };
-  //Marcar como incompleta
+
+  /**
+   * Marcar tarea como incompleta
+   * @param {number|string} id - ID de la tarea.
+   */
   const UndoTaskCompleted = (id) => {
     const newTasks = [...taskList];
     const taskIndex = newTasks.findIndex((task) => task.id === id);
     newTasks[taskIndex].completed = false;
     setTaskList(newTasks);
   };
-  //Eliminar tarea
+
+  /**
+   * Eliminar tarea.
+   * @param {number|string} id - ID de la tarea.
+   */
   const deleteTask = (id) => {
     const newTasks = [...taskList];
     const taskIndex = newTasks.findIndex((task) => task.id === id);
@@ -66,7 +102,13 @@ function TodoProvider({ children }) {
     });
   };
 
-  //validate
+  /**
+   * Valida y sanitiza el string de la tarea que se quiere crear.
+   * limitando el largo a 140 caracteres.
+   * limitando el largo de una palabra consecutiva a 20 caracteres.
+   * @param {string} title
+   * @returns
+   */
   const validate = (title) => {
     let titleSanitized = title.trim();
     let titleLength = titleSanitized.length;
@@ -82,10 +124,11 @@ function TodoProvider({ children }) {
     );
   };
 
-  //Nueva tarea
-  const [newTaskValue, setNewTaskValue] = useState("");
-
-  const addTaskButtonState = validate(newTaskValue);
+  /**
+   * Crear nueva tareea.
+   */
+  const [newTaskValue, setNewTaskValue] = useState(""); // datos de la nueva tarea.
+  const addTaskButtonState = validate(newTaskValue); // estado del boton de agregar tarea.
 
   const addTask = () => {
     if (!validate(newTaskValue)) return;
@@ -103,7 +146,12 @@ function TodoProvider({ children }) {
     setNewTaskValue("");
   };
 
-  //Editar Tarea
+  /**
+   * Editar Tarea
+   * @param {number|string} id - ID de la tarea.
+   * @param {string} title - titulo de la tarea.
+   * @returns
+   */
   const editTask = (id, title) => {
     if (!validate(title)) return;
     const newTasks = [...taskList];
@@ -149,6 +197,10 @@ function TodoProvider({ children }) {
         validate,
         notification,
         setNotification,
+        darkMode,
+        setDarkMode,
+        darkModeLoading,
+        darkModeError,
       }}
     >
       {children}

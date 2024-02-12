@@ -4,16 +4,25 @@ import { useContext } from "react";
 import { TodoContext } from "../../../context/TodoContext";
 
 function TodoCreateDesktop() {
-  const { newTaskValue, setNewTaskValue, addTask, addTaskButtonState } =
-    useContext(TodoContext);
+  const {
+    newTaskValue,
+    setNewTaskValue,
+    addTask,
+    addTaskButtonState,
+    darkMode,
+  } = useContext(TodoContext);
 
   const actionClick = () => {
     addTaskButtonState ? addTask() : document.getElementById("addTask").focus();
   };
 
   return (
-    <div className={style.container}>
-      <h2 className={style.title}>Create new task</h2>
+    <div
+      className={`${style.container} ${darkMode && style.container_darkMode}`}
+    >
+      <h2 className={`${style.title} ${darkMode && style.title_darkMode}`}>
+        Create new task
+      </h2>
       <input
         id="addTask"
         className={style.input}

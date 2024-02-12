@@ -11,16 +11,21 @@ function TodoItem({ id, title, completed }) {
     setTaskDataDelete,
     setShowModalEdit,
     setTaskDataEdit,
+    darkMode,
   } = useContext(TodoContext);
 
-  const [showItem, setShowItem] = useState(false)
+  const [showItem, setShowItem] = useState(false);
 
   useEffect(() => {
-    setShowItem(true)
-  }, [])
+    setShowItem(true);
+  }, []);
 
   return (
-    <li className={`${style.li} ${showItem && style.show} ${completed ? style.completed : ""}`}>
+    <li
+      className={`${style.li} ${showItem && style.show} ${
+        completed ? style.completed : ""
+      } ${darkMode && style.darkMode}`}
+    >
       {completed ? (
         <FaUndo
           className={"icon " + style.icUndoTaskCompleted}

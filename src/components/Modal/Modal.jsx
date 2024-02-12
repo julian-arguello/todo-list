@@ -21,9 +21,9 @@ function Modal({
   const closeModal = () => {
     setShow(false);
     setTimeout(() => {
-      actionClose()
+      actionClose();
     }, 300);
-  }
+  };
 
   return ReactDOM.createPortal(
     <div className={`${style.cover} ${show && style.coverShow}`}>
@@ -39,7 +39,10 @@ function Modal({
           </button>
           <button
             className={`${style.buttonAdd} ${style.button}`}
-            onClick={() => {actionSuccess(); closeModal();}}
+            onClick={() => {
+              actionSuccess();
+              closeModal();
+            }}
             disabled={actionSuccessButtonDisabled}
           >
             {titleButtonSuccess}

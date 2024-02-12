@@ -16,8 +16,8 @@
   transition: 0.3s ease;
 }
 
-.disable{
-  background: var(--cover); 
+.disable {
+  background: var(--cover);
 }
 
 .iconSerch * {
@@ -68,7 +68,6 @@
 }
 
 @media (min-width: 768px) {
-
   .searchContainer {
     grid-column: 7 / span 6;
     grid-row: 3 / span 1;
