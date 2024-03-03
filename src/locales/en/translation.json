@@ -1,0 +1,45 @@
+{
+  "create": "Create",
+  "delete": "Delete",
+  "cancel": "Cancel",
+  "save": "Save",
+
+  "todoCreate": {
+    "title": "Create new task",
+    "placeholder": "New task",
+    "button": "Create task"
+  },
+
+  "todoCounter": {
+    "completed": "You have completed",
+    "allTasks": "all your tasks",
+    "someTasks": "You have completed <b>{{completedCount}}</b> of <b>{{totalCount}}</b> tasks"
+  },
+
+  "todoDelete": {
+    "title": "Delete task"
+  },
+  "todoEdit": {
+    "title": "Edit task"
+  },
+  "todoItem": {
+    "title": "press the text to edit"
+  },
+  "todoItemEmpty": {
+    "createFirstTask": "Create your first task",
+    "noSearchResults": "No search results"
+  },
+  "todoItemError": {
+    "title": "¡Error loading tasks!"
+  },
+  "todoSearch": {
+    "placeholder": "Search task",
+    "all": "All",
+    "solved": "Solved",
+    "pending": "Pending"
+  },
+  "notification": {
+    "deleteTask": "Task Delete Successfully",
+    "editTask": "Task Edited Successfully"
+  }
+}

@@ -1,5 +1,5 @@
 import { TodoCounter } from "../components/TodoCounter/TodoCounter.jsx";
-import { TodoSerch } from "../components/TodoSerch/TodoSerch.jsx";
+import { TodoSearch } from "../components/TodoSearch/TodoSearch.jsx";
 import { TodoList } from "../components/TodoList/TodoList.jsx";
 import { TodoCreateDesktop } from "../components/TodoCreate/TodoCreateDesktop/TodoCreateDesktop.jsx";
 import { TodoCreateMobileButton } from "../components/TodoCreate/TodoCreateMobileButton/TodoCreateMobileButton.jsx";
@@ -25,7 +25,7 @@ function AppUI({ appHeight }) {
       {notification.show && <Notification />}
       <TodoCreateDesktop />
       <TodoCounter />
-      <TodoSerch />
+      <TodoSearch />
       <TodoList />
       <TodoCreateMobileButton />
       {showModalCreate && <TodoCreateMobile />}

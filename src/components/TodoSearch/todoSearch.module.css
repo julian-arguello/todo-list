@@ -16,7 +16,7 @@
   transition: 0.3s ease;
 }
 
-.iconSerch * {
+.iconSearch * {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,11 +24,11 @@
   transition: 0.3s ease;
 }
 
-.iconSerch {
+.iconSearch {
   color: var(--light-gray);
 }
 
-.iconSerch:hover * {
+.iconSearch:hover * {
   color: var(--grey);
 }
 

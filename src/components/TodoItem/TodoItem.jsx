@@ -2,8 +2,10 @@ import { FaCheck, FaUndo, FaTimes } from "react-icons/fa";
 import style from "./todoItem.module.css";
 import { TodoContext } from "../../context/TodoContext";
 import { useContext, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 function TodoItem({ id, title, completed }) {
+  const { t } = useTranslation();
   const {
     taskCompleted,
     UndoTaskCompleted,
@@ -40,7 +42,7 @@ function TodoItem({ id, title, completed }) {
       <p className={style.contentItem}>
         <span
           className={style.span}
-          title="press the text to edit"
+          title={t("todoItem.title")}
           onClick={() => {
             setTaskDataEdit({ id: id, title: title });
             setShowModalEdit(true);

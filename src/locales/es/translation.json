@@ -1,0 +1,45 @@
+{
+  "create": "Crear",
+  "delete": "Eliminar",
+  "cancel": "Cancelar",
+  "save": "Guardar",
+
+  "todoCreate": {
+    "title": "Crear nueva tarea",
+    "placeholder": "Nueva tarea",
+    "button": "Crear tarea"
+  },
+
+  "todoCounter": {
+    "completed": "Has completado",
+    "allTasks": "todas tus tareas",
+    "someTasks": "Has completado <b>{{completedCount}}</b> de <b>{{totalCount}}</b> tareas"
+  },
+
+  "todoDelete": {
+    "title": "Eliminar tarea"
+  },
+  "todoEdit": {
+    "title": "Editar tarea"
+  },
+  "todoItem": {
+    "title": "presiona el texto para editar"
+  },
+  "todoItemEmpty": {
+    "createFirstTask": "Crea tu primera tarea",
+    "noSearchResults": "Sin resultados de búsqueda"
+  },
+  "todoItemError": {
+    "title": "¡Error al cargar las tareas!"
+  },
+  "todoSearch": {
+    "placeholder": "Buscar tarea",
+    "all": "Todo",
+    "solved": "Resuelto",
+    "pending": "Pendiente"
+  },
+  "notification": {
+    "deleteTask": "Tarea eliminada exitosamente",
+    "editTask": "Tarea editada exitosamente"
+  }
+}

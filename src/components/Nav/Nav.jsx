@@ -4,6 +4,7 @@ import { LuGithub } from "react-icons/lu";
 import { RiLinkedinLine } from "react-icons/ri";
 import { useContext } from "react";
 import { TodoContext } from "../../context/TodoContext";
+import { LanguageSelector } from "../LanguageSelector/LanguageSelector";
 
 function Nav() {
   const { darkMode } = useContext(TodoContext);
@@ -33,7 +34,7 @@ function Nav() {
       </ul>
 
       <div className={style.action}>
-        <span>En</span>
+        <LanguageSelector />
         <DarkMode />
       </div>
     </nav>

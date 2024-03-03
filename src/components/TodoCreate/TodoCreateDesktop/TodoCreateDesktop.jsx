@@ -2,8 +2,10 @@ import style from "./TodoCreateDesktop.module.css";
 import todoSvg from "./../../../assets/svg/todoSvg.svg";
 import { useContext } from "react";
 import { TodoContext } from "../../../context/TodoContext";
+import { useTranslation } from "react-i18next";
 
 function TodoCreateDesktop() {
+  const { t } = useTranslation();
   const {
     newTaskValue,
     setNewTaskValue,
@@ -21,13 +23,13 @@ function TodoCreateDesktop() {
       className={`${style.container} ${darkMode && style.container_darkMode}`}
     >
       <h2 className={`${style.title} ${darkMode && style.title_darkMode}`}>
-        Create new task
+        {t("todoCreate.title")}
       </h2>
       <input
         id="addTask"
         className={style.input}
         type="text"
-        placeholder="New task"
+        placeholder={t("todoCreate.placeholder")}
         value={newTaskValue}
         onChange={(e) => setNewTaskValue(e.target.value)}
         onKeyUp={(e) => {
@@ -38,7 +40,7 @@ function TodoCreateDesktop() {
         className={`${style.button} ${!addTaskButtonState && style.disabled}`}
         onClick={actionClick}
       >
-        Create task
+        {t("todoCreate.button")}
       </button>
       <div className={style.todoContainerSvg}>
         <img className={style.todoSvg} src={todoSvg} alt="todoSvg" />

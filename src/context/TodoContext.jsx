@@ -1,9 +1,14 @@
 import { createContext, useState } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage.js";
+import { useTranslation } from "react-i18next";
 
 const TodoContext = createContext();
 
 function TodoProvider({ children }) {
+
+  //translate.
+  const { t } = useTranslation();
+
   //Modals
   // Modal para crear nuevo tarea.
   const [showModalCreate, setShowModalCreate] = useState(false);
@@ -104,7 +109,7 @@ function TodoProvider({ children }) {
     setNotification({
       show: true,
       type: "success",
-      msg: "Task Delete Successfully",
+      msg: t('notification.deleteTask'),
     });
   };
 
@@ -167,9 +172,20 @@ function TodoProvider({ children }) {
     setNotification({
       show: true,
       type: "success",
-      msg: "Task Edited Successfully",
+      msg: t('notification.editTask'),
     });
   };
+
+  /**
+   * language selector.
+   */
+  const {
+    item: lenguage,
+    saveItem: setLenguage,
+    loading: lenguageLoading,
+    error: lenguageError,
+  } = useLocalStorage("lenguage_v1", "en");
+
 
   return (
     <TodoContext.Provider
@@ -209,6 +225,8 @@ function TodoProvider({ children }) {
         darkModeError,
         taskFilterStatus,
         setTaskFilterStatus,
+        lenguage, 
+        setLenguage
       }}
     >
       {children}
