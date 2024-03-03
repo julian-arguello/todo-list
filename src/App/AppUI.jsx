@@ -16,9 +16,7 @@ import { Notification } from "../components/Notification/Notification.jsx";
 function AppUI({ appHeight }) {
   const { showModalCreate, showModalDelete, showModalEdit, notification } =
     useContext(TodoContext);
-
-  console.log(appHeight);
-
+    
   return (
     <div className="app" style={{ height: `${appHeight}px` }}>
       <Nav />

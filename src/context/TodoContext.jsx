@@ -58,11 +58,12 @@ function TodoProvider({ children }) {
   const tasksTotal = taskList.length;
 
   /**
-   * Buscar Tarea..
+   * Buscar Tarea.
    */
   const [searchValue, setSearchValue] = useState(""); // input del buscardor.
-  //Filtrar.
-
+  /**
+   * filtrar Tareas.
+   */
   const [taskFilterStatus, setTaskFilterStatus] = useState("");
 
   const taskFilter = taskList.filter((task) => {
@@ -105,6 +106,7 @@ function TodoProvider({ children }) {
     const taskIndex = newTasks.findIndex((task) => task.id === id);
     newTasks.splice(taskIndex, 1);
     setTaskList(newTasks);
+    !newTasks.length && setTaskFilterStatus("");
     setNotification({
       show: true,
       type: "success",

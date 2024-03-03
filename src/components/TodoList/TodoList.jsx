@@ -7,18 +7,29 @@ import { useContext } from "react";
 import { TodoContext } from "../../context/TodoContext.jsx";
 
 function TodoList() {
-  const { taskList, taskFilter, loading, error, searchValue } =
-    useContext(TodoContext);
+  const {
+    taskList,
+    taskFilter,
+    loading,
+    error,
+    searchValue,
+    taskFilterStatus,
+  } = useContext(TodoContext);
 
   return (
     <ul className={style.todoList}>
       {error && taskList.length === 0 && <TodoItemError />}
+
       {loading && <TodoItemLoading />}
+
       {!loading && !error && taskList.length === 0 && <TodoItemEmpty />}
 
-      {!loading && !error && taskFilter.length === 0 && searchValue != "" && (
-        <TodoItemEmpty filter={true} />
-      )}
+      {!loading &&
+        !error &&
+        taskFilter.length === 0 &&
+        (searchValue != "" || taskFilterStatus !== "") && (
+          <TodoItemEmpty filter={true} />
+        )}
 
       {!loading && taskFilter.length >= 1 && (
         <>
