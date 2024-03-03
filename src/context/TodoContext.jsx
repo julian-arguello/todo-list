@@ -116,22 +116,22 @@ function TodoProvider({ children }) {
   /**
    * Valida y sanitiza el string de la tarea que se quiere crear.
    * limitando el largo a 140 caracteres.
-   * limitando el largo de una palabra consecutiva a 20 caracteres.
+   * limitando el largo de una palabra consecutiva a 22 caracteres.
    * @param {string} title
    * @returns
    */
   const validate = (title) => {
     let titleSanitized = title.trim();
     let titleLength = titleSanitized.length;
-    let limiteCaracteresConsecutivos = 20;
-    let patron = new RegExp(
-      `([^\\s])\\1{${limiteCaracteresConsecutivos - 1},}`
-    );
+    const maxCharacters = 22;
+    const wordsArray = titleSanitized.split(" ");
+    const allWordsLessThanMax = wordsArray.every(word => word.length <= maxCharacters);
+
     return (
       title !== "" &&
       titleLength < 140 &&
       titleLength > 0 &&
-      !patron.test(title)
+      allWordsLessThanMax
     );
   };
 
