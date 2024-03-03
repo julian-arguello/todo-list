@@ -44,21 +44,21 @@ function TodoSearch() {
       >
         <li
           className={taskFilterStatus === "" ? style.active : ""}
-          onClick={() => setTaskFilterStatus("")}
+          onClick={() => tasksTotal !== 0 && setTaskFilterStatus("")}
         >
           {t('todoSearch.all')}
         </li>
 
         <li
           className={taskFilterStatus === true ? style.active : ""}
-          onClick={() => setTaskFilterStatus(true)}
+          onClick={() => tasksTotal !== 0 && setTaskFilterStatus(true)}
         >
           {t('todoSearch.solved')}
         </li>
 
         <li
           className={taskFilterStatus === false ? style.active : ""}
-          onClick={() => setTaskFilterStatus(false)}
+          onClick={() => tasksTotal !== 0 && setTaskFilterStatus(false)}
         >
           {t('todoSearch.pending')}
         </li>

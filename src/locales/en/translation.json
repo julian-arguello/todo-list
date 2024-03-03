@@ -13,7 +13,9 @@
   "todoCounter": {
     "completed": "You have completed",
     "allTasks": "all your tasks",
-    "someTasks": "You have completed <b>{{completedCount}}</b> of <b>{{totalCount}}</b> tasks"
+    "someTasks": "You have completed <b>{{completedCount}}</b> of <b>{{totalCount}}</b> tasks",
+    "oneTask": "You have completed <b>{{completedCount}}</b> tasks"
+
   },
 
   "todoDelete": {

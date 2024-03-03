@@ -8,7 +8,6 @@
   transform: rotate(30deg);
   transition: transform 0.5s ease;
 }
-
 .sun {
   color: white;
 }

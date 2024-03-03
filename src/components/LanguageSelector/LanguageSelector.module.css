@@ -1,0 +1,7 @@
+.icon:hover {
+  color: var(--violet);
+}
+
+.darkMode {
+  color: var(--white);
+}

@@ -5,7 +5,6 @@ import { useTranslation } from "react-i18next";
 const TodoContext = createContext();
 
 function TodoProvider({ children }) {
-
   //translate.
   const { t } = useTranslation();
 
@@ -109,7 +108,7 @@ function TodoProvider({ children }) {
     setNotification({
       show: true,
       type: "success",
-      msg: t('notification.deleteTask'),
+      msg: t("notification.deleteTask"),
     });
   };
 
@@ -125,7 +124,9 @@ function TodoProvider({ children }) {
     let titleLength = titleSanitized.length;
     const maxCharacters = 22;
     const wordsArray = titleSanitized.split(" ");
-    const allWordsLessThanMax = wordsArray.every(word => word.length <= maxCharacters);
+    const allWordsLessThanMax = wordsArray.every(
+      (word) => word.length <= maxCharacters
+    );
 
     return (
       title !== "" &&
@@ -172,7 +173,7 @@ function TodoProvider({ children }) {
     setNotification({
       show: true,
       type: "success",
-      msg: t('notification.editTask'),
+      msg: t("notification.editTask"),
     });
   };
 
@@ -185,7 +186,6 @@ function TodoProvider({ children }) {
     loading: lenguageLoading,
     error: lenguageError,
   } = useLocalStorage("lenguage_v1", "en");
-
 
   return (
     <TodoContext.Provider
@@ -225,8 +225,8 @@ function TodoProvider({ children }) {
         darkModeError,
         taskFilterStatus,
         setTaskFilterStatus,
-        lenguage, 
-        setLenguage
+        lenguage,
+        setLenguage,
       }}
     >
       {children}
