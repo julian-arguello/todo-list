@@ -58,10 +58,16 @@ function TodoProvider({ children }) {
    */
   const [searchValue, setSearchValue] = useState(""); // input del buscardor.
   //Filtrar.
+
+  const [taskFilterStatus, setTaskFilterStatus] = useState("");
+
   const taskFilter = taskList.filter((task) => {
-    const taskTitle = task.title.toLowerCase();
-    const taskSearch = searchValue.toLowerCase();
-    return taskTitle.includes(taskSearch);
+    let taskTitle = task.title.toLowerCase();
+    let taskSearch = searchValue.toLowerCase();
+    let taskStatus =
+      taskFilterStatus === "" ? true : task.completed == taskFilterStatus;
+
+    return taskTitle.includes(taskSearch) && taskStatus;
   });
 
   /**
@@ -201,6 +207,8 @@ function TodoProvider({ children }) {
         setDarkMode,
         darkModeLoading,
         darkModeError,
+        taskFilterStatus,
+        setTaskFilterStatus,
       }}
     >
       {children}

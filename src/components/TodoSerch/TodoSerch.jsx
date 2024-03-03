@@ -4,7 +4,13 @@ import { TodoContext } from "../../context/TodoContext";
 import { useContext } from "react";
 
 function TodoSerch() {
-  const { searchValue, setSearchValue, tasksTotal } = useContext(TodoContext);
+  const {
+    searchValue,
+    setSearchValue,
+    tasksTotal,
+    setTaskFilterStatus,
+    taskFilterStatus,
+  } = useContext(TodoContext);
 
   return (
     <div className={style.searchContainer}>
@@ -31,6 +37,30 @@ function TodoSerch() {
           onClick={() => setSearchValue("")}
         />
       </div>
+      <ul
+        className={`${style.filterStatus} ${tasksTotal == 0 && style.disable}`}
+      >
+        <li
+          className={taskFilterStatus === "" ? style.active : ""}
+          onClick={() => setTaskFilterStatus("")}
+        >
+          All
+        </li>
+
+        <li
+          className={taskFilterStatus === true ? style.active : ""}
+          onClick={() => setTaskFilterStatus(true)}
+        >
+          Solved
+        </li>
+
+        <li
+          className={taskFilterStatus === false ? style.active : ""}
+          onClick={() => setTaskFilterStatus(false)}
+        >
+          Pending
+        </li>
+      </ul>
     </div>
   );
 }

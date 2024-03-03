@@ -10,14 +10,10 @@
 .inputContainer {
   grid-column: 1 / span 12;
   background: var(--violet);
-  border-radius: 0.625rem;
+  border-radius: 0.625rem 0.625rem 0 0;
   display: grid;
   grid-template-columns: auto 1fr auto;
   transition: 0.3s ease;
-}
-
-.disable {
-  background: var(--cover);
 }
 
 .iconSerch * {
@@ -67,12 +63,61 @@
   color: var(--red);
 }
 
+.filterStatus {
+  padding: 0.6rem;
+  grid-column: 1 / span 12;
+  background: var(--violet);
+  border-radius: 0 0 0.625rem 0.625rem;
+  transition: 0.3s ease;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+
+}
+
+.filterStatus li {
+  margin: 0;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:0.9rem;
+  background: var(--light-gray-50);
+}
+
+.filterStatus li:nth-child(1) {
+  grid-column: 1 / span 1;
+}
+
+.filterStatus li:nth-child(2) {
+  grid-column: 2 / span 1;
+}
+
+.filterStatus li:nth-child(3) {
+  grid-column: 3 / span 1;
+}
+
+.disable {
+  background: var(--cover);
+  transition: 0.3s ease;
+}
+
+.active {
+  background-color: var(--light-gray) !important;
+  transition: 0.3s ease;
+}
+
 @media (min-width: 768px) {
   .searchContainer {
     grid-column: 7 / span 6;
     grid-row: 3 / span 1;
   }
+
   .inputContainer {
+    grid-column: 3 / span 8;
+  }
+
+  .filterStatus {
     grid-column: 3 / span 8;
   }
 }
