@@ -9,12 +9,12 @@ function TodoItemEmpty({ filter = false }) {
       {!filter ? (
         <>
           <BiRocket className={"icon iconInfo"} />
-          <p>{t('todoItemEmpty.createFirstTask')}</p>
+          <p>{t("todoItemEmpty.createFirstTask")}</p>
         </>
       ) : (
         <>
           <FaSearchMinus className={"icon"} />
-          <p>{t('todoItemEmpty.noSearchResults')}</p>
+          <p>{t("todoItemEmpty.noSearchResults")}</p>
         </>
       )}
     </li>

@@ -2,9 +2,9 @@ import style from "./Nav.module.css";
 import { DarkMode } from "../DarkMode/DarkMode";
 import { LuGithub } from "react-icons/lu";
 import { RiLinkedinLine } from "react-icons/ri";
+import { LanguageSelector } from "../LanguageSelector/LanguageSelector";
 import { useContext } from "react";
 import { TodoContext } from "../../context/TodoContext";
-import { LanguageSelector } from "../LanguageSelector/LanguageSelector";
 
 function Nav() {
   const { darkMode } = useContext(TodoContext);

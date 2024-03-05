@@ -1,7 +1,7 @@
 import style from "./todoCounter.module.css";
-import { TodoContext } from "../../context/TodoContext";
-import { useContext } from "react";
 import { useTranslation } from "react-i18next";
+import { useContext } from "react";
+import { TodoContext } from "../../context/TodoContext";
 
 function TodoCounter() {
   const { t } = useTranslation();

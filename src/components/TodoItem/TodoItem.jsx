@@ -1,8 +1,8 @@
-import { FaCheck, FaUndo, FaTimes } from "react-icons/fa";
 import style from "./todoItem.module.css";
-import { TodoContext } from "../../context/TodoContext";
-import { useContext, useEffect, useState } from "react";
+import { FaCheck, FaUndo, FaTimes } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
+import { useContext, useEffect, useState } from "react";
+import { TodoContext } from "../../context/TodoContext";
 
 function TodoItem({ id, title, completed }) {
   const { t } = useTranslation();

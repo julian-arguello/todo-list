@@ -1,8 +1,8 @@
 import style from "./TodoCreateDesktop.module.css";
 import todoSvg from "./../../../assets/svg/todoSvg.svg";
+import { useTranslation } from "react-i18next";
 import { useContext } from "react";
 import { TodoContext } from "../../../context/TodoContext";
-import { useTranslation } from "react-i18next";
 
 function TodoCreateDesktop() {
   const { t } = useTranslation();

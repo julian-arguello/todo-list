@@ -1,7 +1,7 @@
 import style from "./LanguageSelector.module.css";
+import { useTranslation } from "react-i18next";
 import { useContext, useEffect } from "react";
 import { TodoContext } from "../../context/TodoContext";
-import { useTranslation } from "react-i18next";
 
 function LanguageSelector() {
   const { i18n } = useTranslation();
@@ -19,14 +19,17 @@ function LanguageSelector() {
   return (
     <div onClick={toggleLanguage}>
       {lenguage == "en" ? (
-        <span 
-        className={`icon ${style.icon} ${darkMode && style.darkMode}`} 
-        onClick={() => setLenguage("es")}>
+        <span
+          className={`icon ${style.icon} ${darkMode && style.darkMode}`}
+          onClick={() => setLenguage("es")}
+        >
           Es
         </span>
       ) : (
-        <span className={`icon ${style.icon} ${darkMode && style.darkMode}`} 
-        onClick={() => setLenguage("en")}>
+        <span
+          className={`icon ${style.icon} ${darkMode && style.darkMode}`}
+          onClick={() => setLenguage("en")}
+        >
           En
         </span>
       )}

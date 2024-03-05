@@ -1,7 +1,7 @@
-import ReactDOM from "react-dom";
 import style from "./modal.module.css";
-import { FaTimes } from "react-icons/fa";
 import { useEffect, useState } from "react";
+import ReactDOM from "react-dom";
+import { FaTimes } from "react-icons/fa";
 
 function Modal({
   children,

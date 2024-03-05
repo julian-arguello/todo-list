@@ -1,8 +1,8 @@
-import { useContext, useState } from "react";
-import { Modal } from "../Modal/Modal";
-import { TodoContext } from "../../context/TodoContext";
 import style from "./todoEdit.module.css";
+import { Modal } from "../Modal/Modal";
 import { useTranslation } from "react-i18next";
+import { useContext, useState } from "react";
+import { TodoContext } from "../../context/TodoContext";
 
 function TodoEdit() {
   const { t } = useTranslation();

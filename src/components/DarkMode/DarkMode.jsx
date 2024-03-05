@@ -1,7 +1,6 @@
-import { useContext, useEffect } from "react";
 import style from "./DarkMode.module.css";
-import { LuSun } from "react-icons/lu";
-import { LuMoon } from "react-icons/lu";
+import { LuSun, LuMoon } from "react-icons/lu";
+import { useContext, useEffect } from "react";
 import { TodoContext } from "../../context/TodoContext";
 
 function DarkMode() {

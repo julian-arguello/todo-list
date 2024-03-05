@@ -8,22 +8,22 @@ function TodoProvider({ children }) {
   //translate.
   const { t } = useTranslation();
 
-  //Modals
-  // Modal para crear nuevo tarea.
+  // Modals
+  /**
+   * States for Creating/Deleting and Editing a task.
+   */
   const [showModalCreate, setShowModalCreate] = useState(false);
-  // Modal para eliminar un tarea.
   const [showModalDelete, setShowModalDelete] = useState(false);
-  // Modal para editar un tarea.
   const [showModalEdit, setShowModalEdit] = useState(false);
 
   /**
-   * Info que se mostrara en los modales sobre la tarea a eliminar o editar.
+   * Information to be displayed in modals about the task to delete or edit.
    */
   const [taskDataDelete, setTaskDataDelete] = useState({});
   const [taskDataEdit, setTaskDataEdit] = useState({});
 
   /**
-   * notificaciones.
+   * Notifications.
    */
   const [notification, setNotification] = useState({
     show: false,
@@ -32,7 +32,7 @@ function TodoProvider({ children }) {
   });
 
   /**
-   * Guardamos la lista de tareas en localStorage (Custom Hook).
+   * Save the task list to localStorage (Custom Hook).
    */
   const {
     item: taskList,
@@ -42,7 +42,7 @@ function TodoProvider({ children }) {
   } = useLocalStorage("taskList_v1", []);
 
   /*
-   * Guardamos el esatado de darkMode en localStorage (Custom Hook).
+   * Save the darkMode state to localStorage (Custom Hook).
    */
   const {
     item: darkMode,
@@ -52,18 +52,15 @@ function TodoProvider({ children }) {
   } = useLocalStorage("darkMode_v1", false);
 
   /**
-   * Contadores (ESTADOS DERIVADOS se crean a partir de un usestate).
+   * Counters (DERIVED STATES created from a usestate).
    */
-  const tasksCompleted = taskList.filter((task) => !!task.completed).length; //(!!) doble negacion para devolver un valor true o false.
+  const tasksCompleted = taskList.filter((task) => !!task.completed).length; //(!!) double negation to return a true or false value.
   const tasksTotal = taskList.length;
 
   /**
-   * Buscar Tarea.
+   * Search Task and Filter Tasks.
    */
-  const [searchValue, setSearchValue] = useState(""); // input del buscardor.
-  /**
-   * filtrar Tareas.
-   */
+  const [searchValue, setSearchValue] = useState("");
   const [taskFilterStatus, setTaskFilterStatus] = useState("");
 
   const taskFilter = taskList.filter((task) => {
@@ -76,8 +73,8 @@ function TodoProvider({ children }) {
   });
 
   /**
-   * Marcar tarea como Completa.
-   * @param {number|string} id - ID de la tarea.
+   * Mark task as completed.
+   * @param {number|string} id - Task ID.
    */
   const taskCompleted = (id) => {
     const newTasks = [...taskList];
@@ -87,8 +84,8 @@ function TodoProvider({ children }) {
   };
 
   /**
-   * Marcar tarea como incompleta
-   * @param {number|string} id - ID de la tarea.
+   * Mark task as incomplete.
+   * @param {number|string} id - Task ID.
    */
   const UndoTaskCompleted = (id) => {
     const newTasks = [...taskList];
@@ -97,9 +94,9 @@ function TodoProvider({ children }) {
     setTaskList(newTasks);
   };
 
-  /**
-   * Eliminar tarea.
-   * @param {number|string} id - ID de la tarea.
+   /**
+   * Delete task.
+   * @param {number|string} id - Task ID.
    */
   const deleteTask = (id) => {
     const newTasks = [...taskList];
@@ -115,11 +112,11 @@ function TodoProvider({ children }) {
   };
 
   /**
-   * Valida y sanitiza el string de la tarea que se quiere crear.
-   * limitando el largo a 140 caracteres.
-   * limitando el largo de una palabra consecutiva a 22 caracteres.
-   * @param {string} title
-   * @returns
+   * Validate and sanitize the task string to be created.
+   * Limiting the total length to 140 characters.
+   * Limiting the length of consecutive words to 22 characters.
+   * @param {string} title - The task title to be validated.
+   * @returns {boolean} - Returns true if the title is valid, false otherwise.
    */
   const validate = (title) => {
     let titleSanitized = title.trim();
@@ -139,11 +136,15 @@ function TodoProvider({ children }) {
   };
 
   /**
-   * Crear nueva tareea.
+   * State for the new task data and add task button.
    */
-  const [newTaskValue, setNewTaskValue] = useState(""); // datos de la nueva tarea.
-  const addTaskButtonState = validate(newTaskValue); // estado del boton de agregar tarea.
+  const [newTaskValue, setNewTaskValue] = useState(""); 
+  const addTaskButtonState = validate(newTaskValue); 
 
+  /**
+   * Adds a new task to the list.
+   * @returns {void} No return value.
+   */
   const addTask = () => {
     if (!validate(newTaskValue)) return;
     const newTasks = [...taskList];
@@ -161,10 +162,10 @@ function TodoProvider({ children }) {
   };
 
   /**
-   * Editar Tarea
-   * @param {number|string} id - ID de la tarea.
-   * @param {string} title - titulo de la tarea.
-   * @returns
+   * Edit a task.
+   * @param {number|string} id - Task ID.
+   * @param {string} title - Task title.
+   * @returns {void}
    */
   const editTask = (id, title) => {
     if (!validate(title)) return;
@@ -180,7 +181,7 @@ function TodoProvider({ children }) {
   };
 
   /**
-   * language selector.
+   * Language selector.
    */
   const {
     item: lenguage,
@@ -192,21 +193,29 @@ function TodoProvider({ children }) {
   return (
     <TodoContext.Provider
       value={{
+        // Task Data
         taskList,
+        tasksCompleted,
+        tasksTotal,
+
+        // New Task
         newTaskValue,
         setNewTaskValue,
         addTask,
         addTaskButtonState,
-        tasksCompleted,
-        tasksTotal,
+
+        // Search
         searchValue,
         setSearchValue,
         taskFilter,
         taskCompleted,
         UndoTaskCompleted,
+
+        // Task Operations
         deleteTask,
-        loading,
-        error,
+        editTask,
+
+        // Modals
         showModalCreate,
         setShowModalCreate,
         showModalDelete,
@@ -217,16 +226,25 @@ function TodoProvider({ children }) {
         setShowModalEdit,
         taskDataEdit,
         setTaskDataEdit,
-        editTask,
+
+        // Validation
         validate,
+
+        // Notification
         notification,
         setNotification,
+
+        // Dark Mode
         darkMode,
         setDarkMode,
         darkModeLoading,
         darkModeError,
+
+        // Task Filter
         taskFilterStatus,
         setTaskFilterStatus,
+
+        // Language
         lenguage,
         setLenguage,
       }}

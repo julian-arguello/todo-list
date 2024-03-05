@@ -1,8 +1,8 @@
-import { useContext } from "react";
-import { Modal } from "../Modal/Modal";
-import { TodoContext } from "../../context/TodoContext";
 import style from "./todoDelete.module.css";
+import { Modal } from "../Modal/Modal";
 import { useTranslation } from "react-i18next";
+import { useContext } from "react";
+import { TodoContext } from "../../context/TodoContext";
 
 function TodoDelete() {
   const { t } = useTranslation();
@@ -11,10 +11,10 @@ function TodoDelete() {
 
   return (
     <Modal
-      title={t('todoDelete.title')}
-      titleButtonCancel={t('cancel')}
+      title={t("todoDelete.title")}
+      titleButtonCancel={t("cancel")}
       actionClose={() => setShowModalDelete(false)}
-      titleButtonSuccess={t('delete')}
+      titleButtonSuccess={t("delete")}
       actionSuccess={() => deleteTask(taskDataDelete.id)}
       actionSuccessButtonDisabled={false}
     >

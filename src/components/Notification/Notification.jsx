@@ -1,10 +1,9 @@
-import ReactDOM from "react-dom";
 import style from "./Notification.module.css";
+import ReactDOM from "react-dom";
 import { FiInfo } from "react-icons/fi";
 import { FaCheck, FaTimes } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { TodoContext } from "../../context/TodoContext";
-import { useContext } from "react";
 
 function Notification() {
   const { notification, setNotification } = useContext(TodoContext);

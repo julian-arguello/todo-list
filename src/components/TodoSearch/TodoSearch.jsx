@@ -1,8 +1,8 @@
-import { FaSearch, FaTimes } from "react-icons/fa";
 import style from "./todoSearch.module.css";
-import { TodoContext } from "../../context/TodoContext";
-import { useContext } from "react";
+import { FaSearch, FaTimes } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
+import { useContext } from "react";
+import { TodoContext } from "../../context/TodoContext";
 
 function TodoSearch() {
   const { t } = useTranslation();
@@ -31,7 +31,7 @@ function TodoSearch() {
           type="text"
           id="search"
           name="search"
-          placeholder={t('todoSearch.placeholder')}
+          placeholder={t("todoSearch.placeholder")}
           disabled={tasksTotal === 0}
         />
         <FaTimes
@@ -46,21 +46,21 @@ function TodoSearch() {
           className={taskFilterStatus === "" ? style.active : ""}
           onClick={() => tasksTotal !== 0 && setTaskFilterStatus("")}
         >
-          {t('todoSearch.all')}
+          {t("todoSearch.all")}
         </li>
 
         <li
           className={taskFilterStatus === true ? style.active : ""}
           onClick={() => tasksTotal !== 0 && setTaskFilterStatus(true)}
         >
-          {t('todoSearch.solved')}
+          {t("todoSearch.solved")}
         </li>
 
         <li
           className={taskFilterStatus === false ? style.active : ""}
           onClick={() => tasksTotal !== 0 && setTaskFilterStatus(false)}
         >
-          {t('todoSearch.pending')}
+          {t("todoSearch.pending")}
         </li>
       </ul>
     </div>
