@@ -12,10 +12,6 @@
   margin: 1rem auto;
 }
 
-.todoCounter b {
-  margin: 0 0.5rem;
-}
-
 .span {
   margin: 0 0.5rem;
   color: var(--violet);
