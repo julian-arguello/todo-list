@@ -6,12 +6,10 @@ import { TodoCreateMobileButton } from "../components/TodoCreate/TodoCreateMobil
 import { TodoCreateMobile } from "../components/TodoCreate/TodoCreateMobile/TodoCreateMobile.jsx";
 import { TodoDelete } from "../components//TodoDelete/TodoDelete.jsx";
 import { TodoEdit } from "../components/TodoEdit/TodoEdit.jsx";
+import { Nav } from "../components/Nav/Nav.jsx";
+import { Notification } from "../components/Notification/Notification.jsx";
 import { useContext } from "react";
 import { TodoContext } from "../context/TodoContext.jsx";
-
-import { Nav } from "../components/Nav/Nav.jsx";
-
-import { Notification } from "../components/Notification/Notification.jsx";
 
 function AppUI({ appHeight }) {
   const { showModalCreate, showModalDelete, showModalEdit, notification } =

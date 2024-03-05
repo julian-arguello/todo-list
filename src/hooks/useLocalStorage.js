@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-// Custom hook
 
 /**
  * Custom Hook, encargado de manjear el local storage.
