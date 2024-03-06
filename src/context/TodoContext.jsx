@@ -67,7 +67,7 @@ function TodoProvider({ children }) {
     let taskTitle = task.title.toLowerCase();
     let taskSearch = searchValue.toLowerCase();
     let taskStatus =
-      taskFilterStatus === "" ? true : task.completed == taskFilterStatus;
+      taskFilterStatus === "" ? true : task.completed === taskFilterStatus;
 
     return taskTitle.includes(taskSearch) && taskStatus;
   });

@@ -10,7 +10,7 @@ function TodoCounter() {
   const isAllTasksCompleted = tasksTotal === tasksCompleted && tasksTotal > 0;
   const completedTasksMessage = isAllTasksCompleted
     ? t("todoCounter.completed")
-    : tasksTotal != 1
+    : tasksTotal !== 1
     ? t("todoCounter.someTasks", {
         completedCount: tasksCompleted,
         totalCount: tasksTotal,

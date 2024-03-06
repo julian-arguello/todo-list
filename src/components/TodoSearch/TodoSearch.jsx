@@ -18,7 +18,7 @@ function TodoSearch() {
     <div className={style.searchContainer}>
       <div
         className={`${style.inputContainer} ${
-          tasksTotal == 0 && style.disable
+          tasksTotal === 0 && style.disable
         }`}
       >
         <label htmlFor="search" className={"icon " + style.iconSearch}>
@@ -40,7 +40,7 @@ function TodoSearch() {
         />
       </div>
       <ul
-        className={`${style.filterStatus} ${tasksTotal == 0 && style.disable}`}
+        className={`${style.filterStatus} ${tasksTotal === 0 && style.disable}`}
       >
         <li
           className={taskFilterStatus === "" ? style.active : ""}

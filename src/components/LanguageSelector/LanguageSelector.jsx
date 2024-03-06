@@ -18,7 +18,7 @@ function LanguageSelector() {
 
   return (
     <div onClick={toggleLanguage}>
-      {lenguage == "en" ? (
+      {lenguage === "en" ? (
         <span
           className={`icon ${style.icon} ${darkMode && style.darkMode}`}
           onClick={() => setLenguage("es")}

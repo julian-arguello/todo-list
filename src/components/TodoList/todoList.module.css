@@ -7,7 +7,7 @@
   overflow: scroll;
   overflow: overlay;
   display: grid;
-  align-content: flex-start;
+  align-content: start;
   grid-template-columns: repeat(12, 1fr);
   padding-bottom: 1rem;
 }

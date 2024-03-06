@@ -17,6 +17,7 @@ function Nav() {
             className={`${style.a} ${darkMode && style.darkMode}`}
             href="https://github.com/julian-arguello"
             target="_blank"
+            rel="noreferrer"
           >
             <LuGithub className={`icon iconInfo ${style.icon}`} />
           </a>
@@ -27,6 +28,7 @@ function Nav() {
             className={`${style.a} ${darkMode && style.darkMode}`}
             href="https://www.linkedin.com/in/juli%C3%A1n-arg%C3%BCello-92555a161/"
             target="_blank"
+            rel="noreferrer"
           >
             <RiLinkedinLine className={`icon iconInfo ${style.icon}`} />
           </a>

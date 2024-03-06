@@ -27,7 +27,7 @@ function TodoList() {
       {!loading &&
         !error &&
         taskFilter.length === 0 &&
-        (searchValue != "" || taskFilterStatus !== "") && (
+        (searchValue !== "" || taskFilterStatus !== "") && (
           <TodoItemEmpty filter={true} />
         )}
 
