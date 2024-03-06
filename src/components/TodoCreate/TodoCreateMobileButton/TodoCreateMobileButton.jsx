@@ -7,7 +7,11 @@ function TodoCreateMobileButton() {
   const { setShowModalCreate } = useContext(TodoContext);
 
   return (
-    <button className={style.button} onClick={() => setShowModalCreate(true)}>
+    <button
+      id="createTaskButton"
+      className={style.button}
+      onClick={() => setShowModalCreate(true)}
+    >
       <FaPlus />
     </button>
   );

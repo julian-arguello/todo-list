@@ -1,0 +1,8 @@
+* {
+    transition: background-color 0.5s ease;
+}
+
+.darkMode {
+    background: var(--ligh-black2);
+    color: var(--light-gray);
+}
