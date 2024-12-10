@@ -26,7 +26,7 @@ function Nav() {
         <li className={style.li}>
           <a
             className={`${style.a} ${darkMode && style.darkMode}`}
-            href="https://www.linkedin.com/in/juli%C3%A1n-arg%C3%BCello-92555a161/"
+            href="https://www.linkedin.com/in/juli%C3%A1n-andr%C3%A9s-arg%C3%BCello-92555a161/"
             target="_blank"
             rel="noreferrer"
           >
