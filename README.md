@@ -36,7 +36,8 @@ Start the server
 [Ver en Figma](https://www.figma.com/file/Jjs7dkFyjVsiNZnR20TJ7z/Todo-list?type=design&node-id=0%3A1&mode=design&t=KF6UxQMhwi7QxB0F-1)
 
 ## Screenshots
-![App Screenshot](https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihYyA2foCNB-xYVk7gW47rmx6oqCYH0clwSVYxPRZgDjlAGErLMkaLzchg3k5JsE9tqtX4nH0fOFoeukU9wLyLlc9YgVBQ=w1920-h868)
-![App Screenshot2](https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihaQurtSW0FD7cplvDfR58CO_yfdI392M_Y8NASZQ7Bbz9qG-RK8VhyxoQceYItEpCqYZTL4puqbvKb8BaP7gm8y6-8E-Q=w1890-h867)
+
+![App Screenshot2](https://github.com/user-attachments/assets/23d77f4b-e3b6-40dd-9555-ab2fbc074684)
+![App Screenshot1](https://github.com/user-attachments/assets/3dde3b64-fe2f-4401-a330-e0d241ea5730)
 
 I hope you find the MyTasks app useful!
